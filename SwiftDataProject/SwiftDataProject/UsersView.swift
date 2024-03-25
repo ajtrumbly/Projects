@@ -13,7 +13,19 @@ struct UsersView: View {
     
     var body: some View {
         List(users) { user in
-            Text(user.name)
+            HStack {
+                Text(user.name)
+                
+                Spacer()
+                
+                Text(String(user.unwrappedJobs.count))
+                    .fontWeight(.black)
+                    .padding(.horizontal, 10)
+                    .padding(.vertical)
+                    .background (.blue)
+                    .foregroundStyle(.white)
+                    .clipShape(.capsule)
+            }
         }
     }
     

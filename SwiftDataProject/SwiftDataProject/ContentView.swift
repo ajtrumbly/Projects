@@ -59,6 +59,18 @@ struct ContentView: View {
                     }
                 }
         }
+        .onAppear(perform: addSample)
+    }
+    
+    func addSample() {
+        let user1 = User(name: "Person", city: "Phoenix", joinDate: .now)
+        let job1 = Job(name: "Organize sock drawer", priority: 4)
+        let job2 = Job(name: "Make plans with friends", priority: 5)
+        
+        modelContext.insert(user1)
+        
+        user1.jobs?.append(job1)
+        user1.jobs?.append(job2)
     }
 }
 
