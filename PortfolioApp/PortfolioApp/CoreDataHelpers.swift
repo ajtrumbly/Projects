@@ -31,6 +31,24 @@ extension Issue {
         return result.sorted()
     }
     
+    var issueTagsList: String {
+        guard let tags else { return "No tags" }
+        
+        if tags.count == 0 {
+            return "No tags"
+        } else {
+            return issueTags.map(\.tagName).formatted()
+        }
+    }
+    
+    var issueStatus: String {
+        if completed {
+            return "Closed"
+        } else {
+            return "Open"
+        }
+    }
+    
     static var example: Issue {
         let controller = DataController(inMemory: true)
         let viewContent = controller.container.viewContext
@@ -44,7 +62,7 @@ extension Issue {
     }
 }
 
-extension Issue {
+extension Issue: Comparable {
     public static func <(lhs: Issue, rhs: Issue) -> Bool {
         let left = lhs.issueTitle.localizedLowercase
         let right = rhs.issueTitle.localizedLowercase
