@@ -16,7 +16,11 @@ enum Status {
     case all, open, closed
 }
 
+
+/// A environment singleton that is responsible for managing out Core Data stack, including handling saving,
+/// couting fetch request, tracking issues/tags, and dealing with sample data
 class DataController: ObservableObject {
+    /// The long CloudKit container used to store all of our data
     let container: NSPersistentCloudKitContainer
 
     @Published var selectedFilter: Filter? = Filter.all
@@ -51,6 +55,9 @@ class DataController: ObservableObject {
         return (try? container.viewContext.fetch(request).sorted()) ?? []
     }
 
+    /// Initializes a data controller, either in memory (for testing use such as previewing),
+    /// or on permanent storage (for use in regular app runs.) Defaults to permanent storage.
+    /// - Parameter inMemory: Whether to store this data intemporary memory or not
     init(inMemory: Bool = false) {
         container = NSPersistentCloudKitContainer(name: "Main")
 
@@ -111,6 +118,10 @@ class DataController: ObservableObject {
         try? viewContext.save()
     }
 
+    
+    /// Saves our Core Data context iff there are changes. This silently ignores
+    /// any erros caused by saving, but this should be fine beacuse
+    /// all our attributes are optional.
     func save() {
         saveTask?.cancel()
         
@@ -167,6 +178,10 @@ class DataController: ObservableObject {
         return difference.sorted()
     }
     
+    
+    /// Runs a fetch request with various predicates that filter the users issues based on
+    /// tag, title, and content text, search tokens, priority, and completion status.
+    /// - Returns: An array of all matching issues
     func issuesForSelectedFilter() -> [Issue] {
         let filter = selectedFilter ?? .all
         var predicates = [NSPredicate]()
