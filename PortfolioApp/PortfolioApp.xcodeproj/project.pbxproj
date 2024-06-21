@@ -18,6 +18,8 @@
 		D98D88FC2C1CE76E00982E23 /* UserFilterRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D88FB2C1CE76E00982E23 /* UserFilterRow.swift */; };
 		D98D891E2C236FA900982E23 /* PortfolioAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D891D2C236FA900982E23 /* PortfolioAppTests.swift */; };
 		D98D89252C2370F500982E23 /* AssetTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89242C2370F500982E23 /* AssetTests.swift */; };
+		D98D89272C24B2F100982E23 /* TagTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89262C24B2F100982E23 /* TagTest.swift */; };
+		D98D89292C24B59800982E23 /* AwardsTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89282C24B59800982E23 /* AwardsTest.swift */; };
 		D994775E2C0EA3B8009B32AB /* PortfolioAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */; };
 		D99477602C0EA3B8009B32AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994775F2C0EA3B8009B32AB /* ContentView.swift */; };
 		D99477622C0EA3B9009B32AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99477612C0EA3B9009B32AB /* Assets.xcassets */; };
@@ -65,6 +67,8 @@
 		D98D891B2C236FA900982E23 /* PortfolioAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D891D2C236FA900982E23 /* PortfolioAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppTests.swift; sourceTree = "<group>"; };
 		D98D89242C2370F500982E23 /* AssetTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AssetTests.swift; sourceTree = "<group>"; };
+		D98D89262C24B2F100982E23 /* TagTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagTest.swift; sourceTree = "<group>"; };
+		D98D89282C24B59800982E23 /* AwardsTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AwardsTest.swift; sourceTree = SOURCE_ROOT; };
 		D994775A2C0EA3B8009B32AB /* PortfolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppApp.swift; sourceTree = "<group>"; };
 		D994775F2C0EA3B8009B32AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,8 +186,10 @@
 		D98D891C2C236FA900982E23 /* PortfolioAppTests */ = {
 			isa = PBXGroup;
 			children = (
-				D98D891D2C236FA900982E23 /* PortfolioAppTests.swift */,
 				D98D89242C2370F500982E23 /* AssetTests.swift */,
+				D98D89282C24B59800982E23 /* AwardsTest.swift */,
+				D98D891D2C236FA900982E23 /* PortfolioAppTests.swift */,
+				D98D89262C24B2F100982E23 /* TagTest.swift */,
 			);
 			path = PortfolioAppTests;
 			sourceTree = "<group>";
@@ -340,6 +346,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D98D89252C2370F500982E23 /* AssetTests.swift in Sources */,
+				D98D89292C24B59800982E23 /* AwardsTest.swift in Sources */,
+				D98D89272C24B2F100982E23 /* TagTest.swift in Sources */,
 				D98D891E2C236FA900982E23 /* PortfolioAppTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
