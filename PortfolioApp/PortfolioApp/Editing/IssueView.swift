@@ -27,7 +27,7 @@ struct IssueView: View {
                 Picker("Priority", selection: $issue.priority) {
                     Text("Low").tag(Int16(0))
                     Text("Medium").tag(Int16(1))
-                    Text("Large").tag(Int16(2))
+                    Text("High").tag(Int16(2))
                 }
                 
                 TagsMenuView(issue: issue)

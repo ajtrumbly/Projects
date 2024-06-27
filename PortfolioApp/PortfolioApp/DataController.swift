@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import SwiftUI
 
 enum SortType: String {
     case dateCreated = "creationDate"
@@ -101,6 +102,13 @@ class DataController: ObservableObject {
             if let error {
                 fatalError("Fatal error loading store: \(error.localizedDescription)")
             }
+            
+            #if DEBUG
+            if CommandLine.arguments.contains("enable-testing") {
+                self.deleteAll()
+                UIView.setAnimationsEnabled(false)
+            }
+            #endif
         }
     }
 
@@ -252,7 +260,7 @@ class DataController: ObservableObject {
     
     func newIssue() {
         let issue = Issue(context: container.viewContext)
-        issue.title = NSLocalizedString("New issues", comment: "Create a new issue")
+        issue.title = NSLocalizedString("New issue", comment: "Create a new issue")
         issue.creationDate = .now
         issue.priority = 1
         

@@ -40,6 +40,17 @@
                ReferencedContainer = "container:PortfolioApp.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO"
+            parallelizable = "YES">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "D98D89382C2A00FB00982E23"
+               BuildableName = "PortfolioAppUITests.xctest"
+               BlueprintName = "PortfolioAppUITests"
+               ReferencedContainer = "container:PortfolioApp.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
