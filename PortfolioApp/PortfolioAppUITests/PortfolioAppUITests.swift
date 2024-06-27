@@ -91,9 +91,9 @@ final class PortfolioAppUITests: XCTestCase {
 
         for award in app.scrollViews.buttons.allElementsBoundByIndex {
             
-            if app.windows.element.frame.contains(award.frame) == false {
-                app.swipeUp()
-            }
+//            if app.windows.element.frame.contains(award.frame) == false {
+//                app.swipeUp()
+//            }
             award.tap()
             XCTAssertTrue(app.alerts["Locked"].exists, "There should be a Locked alert showing for awards.")
             app.buttons["OK"].tap()
