@@ -8,7 +8,6 @@
 import Foundation
 import SwiftData
 
-
 @Model
 /// A gift card model that will be used within the app to store each individual gift card.
 struct GiftCard {
@@ -21,17 +20,28 @@ struct GiftCard {
     var pin: Int?
     var notes: String?
     
-    
-    init(store: String, barcodeType: String, barcodeValue: String, balance: Double, creationDate: Foundation.Date = Date.now, lastModifiedDate: Date, pin: Int, notes: String) {
+    /// Initializer when creating a new gift card.
+    /// The dates, pin, and notes are optional/automatically assigned
+    /// values to be changed at a later date
+    /// - Parameters:
+    ///   - store: Assign the store to be redeemed at
+    ///   - barcodeType: Assign the barcode type which will be needed for recreation
+    ///   - barcodeValue: Assign the value of the barcode to use in conjunction with the barcodeType
+    ///   - balance: Assign the starting balance
+    init(store: String, 
+         barcodeType: String,
+         barcodeValue: String,
+         balance: Double) {
         self.store = store
         self.barcodeType = barcodeType
         self.barcodeValue = barcodeValue
         self.balance = balance
-        self.creationDate = creationDate
-        self.lastModifiedDate = lastModifiedDate
-        self.pin = pin
-        self.notes = notes
     }
     
-    static let example = GiftCard(store: "Scheels", barcodeType: "UPC-A", barcodeValue: "115727^115727rt", balance: 100.00, creationDate: .distantPast, lastModifiedDate: .now, pin: 1234, notes: "This is a test gift card.")
+    // Example Gift Card to be used when testing or as a placeholder
+    static let example = GiftCard(
+        store: "Scheels",
+        barcodeType: "UPC-A",
+        barcodeValue: "115727^115727rt",
+        balance: 100.00)
 }
