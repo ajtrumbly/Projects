@@ -23,11 +23,15 @@ struct IssueViewToolbar: View {
                 Label("Copy Issue Title", systemImage: "doc.on.doc")
             }
             
-            Button {
-                issue.completed.toggle()
-                dataController.save()
-            } label: {
+            Button(action: toggleCompleted) {
                 Label(openCloseButtonText, systemImage: "bubble.left.and.exclamationmark.bubble.right")
+            }
+            .sensoryFeedback(trigger: issue.completed) { oldValue, newValue in
+                if newValue {
+                    .success
+                } else {
+                    nil
+                }
             }
             
             Divider()
@@ -38,6 +42,11 @@ struct IssueViewToolbar: View {
         } label: {
             Label("Actions", systemImage: "ellipsis.circle")
         }
+    }
+    
+    func toggleCompleted() {
+        issue.completed.toggle()
+        dataController.save()
     }
 }
 
