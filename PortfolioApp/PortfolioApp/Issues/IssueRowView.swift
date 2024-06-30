@@ -9,22 +9,22 @@ import SwiftUI
 
 struct IssueRowView: View {
     @EnvironmentObject var dataController: DataController
-    @ObservedObject var issue: Issue
+    @StateObject var viewModel: ViewModel
     
     var body: some View {
-        NavigationLink(value: issue) {
+        NavigationLink(value: viewModel.issue) {
             HStack {
                 Image(systemName: "exclamationmark.circle")
                     .imageScale(.large)
-                    .opacity(issue.priority == 2 ? 1 : 0)
-                    .accessibilityIdentifier(issue.priority == 2 ? "\(issue.issueTitle) High priority" : "")
+                    .opacity(viewModel.iconOpacity)
+                    .accessibilityIdentifier(viewModel.iconIdentifier)
                 
                 VStack(alignment: .leading) {
-                    Text(issue.issueTitle)
+                    Text(viewModel.issueTitle)
                         .font(.headline)
                         .lineLimit(1)
                     
-                    Text(issue.issueTagsList)
+                    Text(viewModel.issueTagsList)
                         .foregroundStyle(.secondary)
                         .lineLimit(1)
                 }
@@ -32,19 +32,24 @@ struct IssueRowView: View {
                 Spacer()
                 
                 VStack(alignment: .trailing) {
-                    Text(issue.issueFormattedCreationDate)
-                        .accessibilityLabel(issue.issueCreationDate.formatted(date: .abbreviated, time: .omitted))
+                    Text(viewModel.creationDate)
+                        .accessibilityLabel(viewModel.accessibilityCreationDate)
                         .font(.subheadline)
                     
-                    if issue.completed {
+                    if viewModel.completed {
                         Text("CLOSED")
                             .font(.body.smallCaps())
                     }
                 }.foregroundStyle(.secondary)
             }
         }
-        .accessibilityHint(issue.priority == 2 ? "High priority" : "")
-        .accessibilityIdentifier(issue.issueTitle)
+        .accessibilityHint(viewModel.accessibilityHint)
+        .accessibilityIdentifier(viewModel.issueTitle)
+    }
+    
+    init(issue: Issue) {
+        let viewModel = ViewModel(issue: issue)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 }
 

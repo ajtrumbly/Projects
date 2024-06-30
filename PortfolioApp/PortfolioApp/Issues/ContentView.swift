@@ -8,22 +8,22 @@
 import SwiftUI
 
 struct ContentView: View {
-    @EnvironmentObject var dataController: DataController
+    @StateObject var viewModel: ViewModel
 
     var body: some View {
-        List(selection: $dataController.selectedIssue) {
-            ForEach(dataController.issuesForSelectedFilter()) { issue in
+        List(selection: $viewModel.selectedIssue) {
+            ForEach(viewModel.dataController.issuesForSelectedFilter()) { issue in
                 IssueRowView(issue: issue)
             }
-            .onDelete(perform: delete)
+            .onDelete(perform: viewModel.delete)
         }
         .navigationTitle("Issues")
         /* Need to figure out why tag/tokens are not working below in searchable... 
          For now taking out that functionality.
          Should read "Filter issues, or type # to add tags"*/
-        .searchable(text: $dataController.filterText, 
-            tokens: $dataController.filterTokens,
-            suggestedTokens: .constant(dataController.suggestedFilterTokens),
+        .searchable(text: $viewModel.filterText,
+                    tokens: $viewModel.filterTokens,
+                    suggestedTokens: .constant(viewModel.suggestedFilterTokens),
             prompt: "Filter issues"
         ) { tag in
             Text(tag.tagName)
@@ -31,16 +31,12 @@ struct ContentView: View {
         .toolbar(content: ContentViewToolbar.init)
     }
 
-    func delete(_ offsets: IndexSet) {
-        let issues = dataController.issuesForSelectedFilter()
-
-        for offset in offsets {
-            let item = issues[offset]
-            dataController.delete(item)
-        }
+    init(dataController: DataController) {
+        let viewModel = ViewModel(dataController: dataController)
+        _viewModel = StateObject(wrappedValue: viewModel)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(dataController: .preview)
 }
