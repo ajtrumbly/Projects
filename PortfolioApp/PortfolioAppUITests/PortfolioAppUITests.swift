@@ -90,8 +90,7 @@ final class PortfolioAppUITests: XCTestCase {
         app.buttons["Show awards"].tap()
 
         for award in app.scrollViews.buttons.allElementsBoundByIndex {
-            
-            if app.windows.element.frame.contains(award.frame) == false {
+            if UIScreen.main.bounds.contains(award.frame) == false {
                 app.swipeUp()
             }
             award.tap()

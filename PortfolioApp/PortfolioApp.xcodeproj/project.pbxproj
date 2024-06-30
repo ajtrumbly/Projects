@@ -27,6 +27,7 @@
 		D98D89342C29FE8D00982E23 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89332C29FE8D00982E23 /* PerformanceTests.swift */; };
 		D98D893C2C2A00FB00982E23 /* PortfolioAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D893B2C2A00FB00982E23 /* PortfolioAppUITests.swift */; };
 		D98D893E2C2A00FB00982E23 /* PortfolioAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D893D2C2A00FB00982E23 /* PortfolioAppUITestsLaunchTests.swift */; };
+		D98D89622C31ED0400982E23 /* SidebarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89612C31ED0400982E23 /* SidebarViewModel.swift */; };
 		D994775E2C0EA3B8009B32AB /* PortfolioAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */; };
 		D99477602C0EA3B8009B32AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994775F2C0EA3B8009B32AB /* ContentView.swift */; };
 		D99477622C0EA3B9009B32AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99477612C0EA3B9009B32AB /* Assets.xcassets */; };
@@ -91,6 +92,7 @@
 		D98D89392C2A00FB00982E23 /* PortfolioAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D893B2C2A00FB00982E23 /* PortfolioAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppUITests.swift; sourceTree = "<group>"; };
 		D98D893D2C2A00FB00982E23 /* PortfolioAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D98D89612C31ED0400982E23 /* SidebarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SidebarViewModel.swift; sourceTree = "<group>"; };
 		D994775A2C0EA3B8009B32AB /* PortfolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppApp.swift; sourceTree = "<group>"; };
 		D994775F2C0EA3B8009B32AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 			children = (
 				D99477772C0EAFD7009B32AB /* Filter.swift */,
 				D99477722C0EAECD009B32AB /* SidebarView.swift */,
+				D98D89612C31ED0400982E23 /* SidebarViewModel.swift */,
 				D98D88F12C1CE13200982E23 /* SidebarViewToolbar.swift */,
 				D98D88F92C1CE6E300982E23 /* SmartFilterRow.swift */,
 				D98D88FB2C1CE76E00982E23 /* UserFilterRow.swift */,
@@ -464,6 +467,7 @@
 				D994777E2C10F1E6009B32AB /* IssueRowView.swift in Sources */,
 				D99477842C19DB2E009B32AB /* Bundle-Decodable.swift in Sources */,
 				D99477762C0EAEE2009B32AB /* DetailView.swift in Sources */,
+				D98D89622C31ED0400982E23 /* SidebarViewModel.swift in Sources */,
 				D99477702C0EA7C4009B32AB /* DataController.swift in Sources */,
 				D98D88F62C1CE37800982E23 /* ContentViewToolbar.swift in Sources */,
 				D99477732C0EAECD009B32AB /* SidebarView.swift in Sources */,
