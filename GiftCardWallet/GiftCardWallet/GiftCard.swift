@@ -18,4 +18,6 @@ class GiftCard: Identifiable {
         self.store = store
         self.balance = balance
     }
+    
+    static let example = GiftCard(store: "Example", balance: 100.00)
 }

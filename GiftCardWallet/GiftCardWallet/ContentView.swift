@@ -13,25 +13,20 @@ struct ContentView: View {
     @Environment(\.modelContext) var modelContext
     
     // Creating the wallet query
+    // TODO: Move into new view with NavLink
     @Query var wallet: [GiftCard]
     
     var body: some View {
         NavigationStack {
             // Iterate through the query to list each gift card
             // TODO: Format the cards like the wallet app
-            List {
-                ForEach(wallet) { giftCard in
-                    Text(giftCard.store)
-                }
-                .onDelete(perform: removeGiftCard)
+            // TODO: Change nav structure to use view & NavLink
+            List(wallet) { giftCard in
+                Text(giftCard.store)
             }
             .navigationTitle("Wallet")
             .toolbar {
-                // Add a new gift card
-                // TODO: Create NewGiftCardView
-                Button(action: addGiftCard) {
-                    Label("Add Gift Card", systemImage: "plus")
-                }
+                // TODO: Add Button to create new gift card
             }
         }
     }
