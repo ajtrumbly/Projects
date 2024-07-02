@@ -11,6 +11,7 @@
 		D98D897C2C3485E800982E23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D897B2C3485E800982E23 /* ContentView.swift */; };
 		D98D897E2C3485EA00982E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D897D2C3485EA00982E23 /* Assets.xcassets */; };
 		D98D89822C3485EA00982E23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D89812C3485EA00982E23 /* Preview Assets.xcassets */; };
+		D98D89892C34864400982E23 /* GiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89882C34864400982E23 /* GiftCard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +21,7 @@
 		D98D897D2C3485EA00982E23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D98D897F2C3485EA00982E23 /* GiftCardWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiftCardWallet.entitlements; sourceTree = "<group>"; };
 		D98D89812C3485EA00982E23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		D98D89882C34864400982E23 /* GiftCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +56,7 @@
 			children = (
 				D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */,
 				D98D897B2C3485E800982E23 /* ContentView.swift */,
+				D98D89882C34864400982E23 /* GiftCard.swift */,
 				D98D897D2C3485EA00982E23 /* Assets.xcassets */,
 				D98D897F2C3485EA00982E23 /* GiftCardWallet.entitlements */,
 				D98D89802C3485EA00982E23 /* Preview Content */,
@@ -139,6 +142,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D98D89892C34864400982E23 /* GiftCard.swift in Sources */,
 				D98D897C2C3485E800982E23 /* ContentView.swift in Sources */,
 				D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */,
 			);
