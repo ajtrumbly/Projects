@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import SwiftData
+import SwiftData 
 
 struct ContentView: View {
     // Injecting the swiftData container into the view
@@ -21,9 +21,10 @@ struct ContentView: View {
             // Iterate through the query to list each gift card
             // TODO: Format the cards like the wallet app
             // TODO: Change nav structure to use view & NavLink
-            List(wallet) { giftCard in
-                Text(giftCard.store)
+            List(wallet, id: \.id) { giftCard in
+                NavigationLink(giftCard.store, value: giftCard)
             }
+            .navigationDestination(for: GiftCard.self, destination: DetailGiftCardView.init)
             .navigationTitle("Wallet")
             .toolbar {
                 // TODO: Add Button to create new gift card
