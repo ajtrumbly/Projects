@@ -19,8 +19,7 @@ struct ContentView: View {
         NavigationStack(path: $path) {
             PeopleView(searchText: searchText, sortOrder: sortOrder)
                 .navigationTitle("FaceFacts")
-                .navigationDestination(for: Person.self) {
-                    person in
+                .navigationDestination(for: Person.self) { person in
                     EditPersonView(navigationPath: $path, person: person)
                 }
                 .toolbar {

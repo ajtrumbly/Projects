@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		D93CEC6C2C35991D0003CD63 /* DetailGiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC6B2C35991D0003CD63 /* DetailGiftCardView.swift */; };
+		D93CEC6E2C35D8A20003CD63 /* NewGiftCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC6D2C35D8A20003CD63 /* NewGiftCardView.swift */; };
+		D93CEC702C35DA610003CD63 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC6F2C35DA610003CD63 /* WalletView.swift */; };
 		D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */; };
 		D98D897C2C3485E800982E23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D897B2C3485E800982E23 /* ContentView.swift */; };
 		D98D897E2C3485EA00982E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D897D2C3485EA00982E23 /* Assets.xcassets */; };
@@ -17,6 +19,8 @@
 
 /* Begin PBXFileReference section */
 		D93CEC6B2C35991D0003CD63 /* DetailGiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailGiftCardView.swift; sourceTree = "<group>"; };
+		D93CEC6D2C35D8A20003CD63 /* NewGiftCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewGiftCardView.swift; sourceTree = "<group>"; };
+		D93CEC6F2C35DA610003CD63 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
 		D98D89762C3485E800982E23 /* GiftCardWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftCardWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardWalletApp.swift; sourceTree = "<group>"; };
 		D98D897B2C3485E800982E23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +44,7 @@
 		D98D896D2C3485E800982E23 = {
 			isa = PBXGroup;
 			children = (
+				D93CEC6F2C35DA610003CD63 /* WalletView.swift */,
 				D98D89782C3485E800982E23 /* GiftCardWallet */,
 				D98D89772C3485E800982E23 /* Products */,
 			);
@@ -58,6 +63,7 @@
 			children = (
 				D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */,
 				D98D897B2C3485E800982E23 /* ContentView.swift */,
+				D93CEC6D2C35D8A20003CD63 /* NewGiftCardView.swift */,
 				D93CEC6B2C35991D0003CD63 /* DetailGiftCardView.swift */,
 				D98D89882C34864400982E23 /* GiftCard.swift */,
 				D98D897D2C3485EA00982E23 /* Assets.xcassets */,
@@ -103,7 +109,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1500;
-				LastUpgradeCheck = 1500;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					D98D89752C3485E800982E23 = {
 						CreatedOnToolsVersion = 15.0.1;
@@ -145,10 +151,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D93CEC6E2C35D8A20003CD63 /* NewGiftCardView.swift in Sources */,
 				D98D89892C34864400982E23 /* GiftCard.swift in Sources */,
 				D93CEC6C2C35991D0003CD63 /* DetailGiftCardView.swift in Sources */,
 				D98D897C2C3485E800982E23 /* ContentView.swift in Sources */,
 				D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */,
+				D93CEC702C35DA610003CD63 /* WalletView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,6 +197,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -250,6 +259,7 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -277,6 +287,7 @@
 				CODE_SIGN_ENTITLEMENTS = GiftCardWallet/GiftCardWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"GiftCardWallet/Preview Content\"";
 				DEVELOPMENT_TEAM = US2A87JDL4;
 				ENABLE_HARDENED_RUNTIME = YES;
@@ -315,6 +326,7 @@
 				CODE_SIGN_ENTITLEMENTS = GiftCardWallet/GiftCardWallet.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"GiftCardWallet/Preview Content\"";
 				DEVELOPMENT_TEAM = US2A87JDL4;
 				ENABLE_HARDENED_RUNTIME = YES;
