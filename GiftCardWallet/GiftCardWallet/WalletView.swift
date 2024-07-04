@@ -16,7 +16,11 @@ struct WalletView: View {
         List {
             ForEach(wallet, id: \.id) { giftCard in
                 NavigationLink(value: giftCard) {
-                    Text(giftCard.store)
+                    HStack {
+                        Image(systemName: "giftcard.fill")
+                        
+                        Text(giftCard.store)
+                    }
                 }
             }
             .onDelete(perform: removeGiftCard)
@@ -27,7 +31,7 @@ struct WalletView: View {
         for offset in offsets {
             let giftCard = wallet[offset]
             modelContext.delete(giftCard)
-        }
+        } 
     }
 }
 
