@@ -15,6 +15,7 @@ struct NewGiftCardView: View {
     @State private var store = ""
     @State private var balance = 0.0
     
+    @State private var showingInvalidBalanceAlert = false
     @State private var isShowingScanner = false
     @State private var scannedCode = ""
     @State private var barcodeType = ""
@@ -33,27 +34,36 @@ struct NewGiftCardView: View {
             }
         }
         .toolbar {
-            Button("Save", action: makeGiftCard)
+            Button("Save") {
+                if balance > 0 {
+                    makeGiftCard()
+                } else {
+                    showingInvalidBalanceAlert = true
+                }
+            }
+            .alert("Invalid Balance", isPresented: $showingInvalidBalanceAlert) {
+                Button("OK", role: .cancel) { }
+            } message: {
+                Text("The balance must be greater than $0 to add a new card.")
+            }
         }
         .navigationTitle("Add Gift Card")
         .sheet(isPresented: $isShowingScanner) {
             NavigationStack {
                 ZStack {
-                    RoundedRectangle(cornerRadius: 10)
-                        .stroke(Color.gray, lineWidth: 2)
-                        .frame(width: 300, height: 180)
                     BarcodeScannerView(scannedCode: $scannedCode, barcodeType: $barcodeType)
-                        .frame(height: .infinity)
-                        .toolbar {
-                            ToolbarItem(placement: .navigationBarTrailing) {
-                                Button(action: {
-                                    isShowingScanner = false  // This replaces dismiss()
-                                }) {
-                                    Image(systemName: "xmark.circle.fill")
-                                        .foregroundStyle(.gray)
-                                }
-                            }
+                        
+                    CardOverlayView()
+                }
+                .toolbar {
+                    ToolbarItem(placement: .navigationBarTrailing) {
+                        Button(action: {
+                            isShowingScanner = false
+                        }) {
+                            Image(systemName: "xmark.circle.fill")
+                                .foregroundStyle(.gray)
                         }
+                    }
                 }
             }
             .presentationDetents([.medium])
@@ -62,8 +72,17 @@ struct NewGiftCardView: View {
     
     func makeGiftCard() {
         let giftCard = GiftCard(store: store, balance: balance)
-        modelContext.insert(giftCard)
-        dismiss()
+        if scannedCode.isEmpty == false {
+            giftCard.barcodeValue = scannedCode
+        }
+        if barcodeType.isEmpty == false {
+            giftCard.barcodeType = barcodeType
+        }
+        
+        if giftCard.balance > 0 {
+            modelContext.insert(giftCard)
+            dismiss()
+        }
     }
 }
 

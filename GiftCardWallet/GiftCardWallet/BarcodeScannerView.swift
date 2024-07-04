@@ -35,6 +35,7 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
 
         func didFindCode(_ code: String, type: String) {
             var adjustedType = type
+            var adjustedCode = code
             
             // Remove the "org.gs1." prefix if present
             if adjustedType.hasPrefix("org.gs1.") {
@@ -44,6 +45,8 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
             // Check for UPC-A
             if adjustedType == "EAN13" && code.count == 12 {
                 adjustedType = "UPC-A"
+                adjustedCode = String(adjustedCode.dropFirst(1))
+                print("Scanned UPCA")
             }
             
             DispatchQueue.main.async {

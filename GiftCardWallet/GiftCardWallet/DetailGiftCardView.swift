@@ -17,8 +17,17 @@ struct DetailGiftCardView: View {
             TextField("Enter the name of the store", text: $giftCard.store)
             TextField("Enter the balance", value: $giftCard.balance, format: .number)
                 .keyboardType(.decimalPad)
+            
+            Section("Card Details") {
+                VStack {
+                    GenerateBarcodeView(giftCard: giftCard)
+                    
+                    Text("Gift card code: \(giftCard.barcodeValue)")
+                    Text("Barcode type: \(giftCard.barcodeType)")
+                }
+            }
         }
-        .navigationTitle("Edit Gift Card")
+        .navigationTitle("\(giftCard.store) Gift Card")
     }
 }
 
