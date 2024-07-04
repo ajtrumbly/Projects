@@ -12,6 +12,7 @@ import Vision
 struct BarcodeScannerView: UIViewControllerRepresentable {
     @Binding var scannedCode: String
     @Binding var barcodeType: String
+    @Environment(\.presentationMode) var presentationMode
 
     func makeUIViewController(context: Context) -> BarcodeScannerViewController {
         let viewController = BarcodeScannerViewController()
@@ -48,6 +49,7 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
             DispatchQueue.main.async {
                 self.parent.scannedCode = code
                 self.parent.barcodeType = adjustedType
+                self.parent.presentationMode.wrappedValue.dismiss()
             }
         }
     }

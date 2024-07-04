@@ -12,21 +12,21 @@ struct NewGiftCardView: View {
     @Environment(\.modelContext) var modelContext
     @Environment(\.dismiss) var dismiss
     
-    @State private var store = "Enter the store name"
+    @State private var store = ""
     @State private var balance = 0.0
     
     @State private var isShowingScanner = false
-    @State private var scannedCode = "Unscanned code"
-    @State private var barcodeType = "Unscanned code type"
+    @State private var scannedCode = ""
+    @State private var barcodeType = ""
     
     var body: some View {
         Form {
             Section("Card Details") {
-                TextEditor(text: $store)
+                TextField("Store name", text: $store)
                 TextField("Enter balance", value: $balance, format: .number)
                     .keyboardType(.decimalPad)
-                Text("Gift card code: \(scannedCode)")
-                Text("Gifr carde barcode: \(barcodeType)")
+                TextField("Barcode value", text: $scannedCode)
+                TextField("Barcode type", text: $barcodeType)
                 Button("Scan gift card") {
                     isShowingScanner.toggle()
                 }
@@ -37,10 +37,26 @@ struct NewGiftCardView: View {
         }
         .navigationTitle("Add Gift Card")
         .sheet(isPresented: $isShowingScanner) {
-            BarcodeScannerView(scannedCode: $scannedCode, barcodeType: $barcodeType)
-                .frame(height: 300)
-                .presentationDetents([.medium])
-                .navigationTitle("Scan Barcode")
+            NavigationStack {
+                ZStack {
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(Color.gray, lineWidth: 2)
+                        .frame(width: 300, height: 180)
+                    BarcodeScannerView(scannedCode: $scannedCode, barcodeType: $barcodeType)
+                        .frame(height: .infinity)
+                        .toolbar {
+                            ToolbarItem(placement: .navigationBarTrailing) {
+                                Button(action: {
+                                    isShowingScanner = false  // This replaces dismiss()
+                                }) {
+                                    Image(systemName: "xmark.circle.fill")
+                                        .foregroundStyle(.gray)
+                                }
+                            }
+                        }
+                }
+            }
+            .presentationDetents([.medium])
         }
     }
     

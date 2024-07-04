@@ -20,6 +20,8 @@ struct WalletView: View {
                         Image(systemName: "giftcard.fill")
                         
                         Text(giftCard.store)
+                        Spacer()
+                        Text("$\(String(giftCard.balance))")
                     }
                 }
             }
