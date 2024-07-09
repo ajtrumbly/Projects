@@ -22,7 +22,7 @@ class GiftCard: Identifiable {
     }
     
     static var example: GiftCard {
-        var giftCard = GiftCard(store: "Scheels", balance: 100.00)
+        let giftCard = GiftCard(store: "Scheels", balance: 100.00)
         giftCard.barcodeValue = "00614207"
         giftCard.barcodeType = "EAN-8"
         return giftCard

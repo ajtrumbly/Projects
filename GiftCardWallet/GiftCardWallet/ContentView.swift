@@ -15,7 +15,6 @@ struct ContentView: View {
     var body: some View {
         VStack {
             NavigationStack(path: $path) {
-                // TODO: Format the cards like the wallet app
                 WalletView()
                     .navigationTitle("Wallet")
                     .navigationDestination(for: GiftCard.self) { giftCard in
@@ -32,5 +31,12 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    do {
+        let previewer = try Previewer()
+        
+        return ContentView()
+            .modelContainer(previewer.container)
+    } catch {
+       return Text("Failed to create preview: \(error.localizedDescription)")
+    }
 }

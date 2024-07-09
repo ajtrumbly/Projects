@@ -8,35 +8,47 @@
 import SwiftUI
 import SwiftData
 
+extension View {
+    func stacked(at position: Int, in total: Int) -> some View {
+        let offset = Double(total - position)
+        return self.offset(y: offset * 5) // Reduced from 60 to 30
+    }
+}
+
 struct WalletView: View {
     @Environment(\.modelContext) var modelContext
     @Query var wallet: [GiftCard]
     
     var body: some View {
-        List {
-            ForEach(wallet, id: \.id) { giftCard in
-                NavigationLink(value: giftCard) {
-                    HStack {
-                        Image(systemName: "giftcard.fill")
-                        
-                        Text(giftCard.store)
-                        Spacer()
-                        Text("$\(String(giftCard.balance))")
+        GeometryReader { geometry in
+            ScrollView(.vertical, showsIndicators: false) {
+                HStack {
+                    Spacer()
+                    VStack(spacing: 0) {
+                        ForEach(wallet.indices, id: \.self) { index in
+                            let giftCard = wallet[index]
+                            NavigationLink(value: giftCard) {
+                                WalletCardView(giftCard: giftCard)
+                                    .offset(y: -CGFloat(index) * 20)
+                            }
+                        }
                     }
+                    .frame(height: geometry.size.height + CGFloat(wallet.count - 1) * 160)
+                    Spacer()
                 }
             }
-            .onDelete(perform: removeGiftCard)
+            .background(Color(UIColor.systemGroupedBackground))
         }
-    }
-    
-    func removeGiftCard(at offsets: IndexSet) {
-        for offset in offsets {
-            let giftCard = wallet[offset]
-            modelContext.delete(giftCard)
-        } 
     }
 }
 
 #Preview {
-    WalletView()
+    do {
+        let previewer = try Previewer()
+        
+        return WalletView()
+            .modelContainer(previewer.container)
+    } catch {
+       return Text("Failed to create preview: \(error.localizedDescription)")
+    }
 }
