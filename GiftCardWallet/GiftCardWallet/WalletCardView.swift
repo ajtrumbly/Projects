@@ -38,6 +38,7 @@ struct WalletCardView: View {
         }
         .frame(width: UIScreen.main.bounds.width - 40, height: 200)
         .padding(.horizontal)
+        
     }
 }
 
