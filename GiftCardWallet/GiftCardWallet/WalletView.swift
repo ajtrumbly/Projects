@@ -24,7 +24,7 @@ struct WalletView: View {
             ScrollView(.vertical, showsIndicators: false) {
                 HStack {
                     Spacer()
-                    VStack(spacing: 0) {
+                    VStack {
                         ForEach(wallet.indices, id: \.self) { index in
                             let giftCard = wallet[index]
                             NavigationLink(value: giftCard) {

@@ -14,6 +14,7 @@ struct NewGiftCardView: View {
     
     @State private var store = ""
     @State private var balance = 0.0
+    @State private var balanceString = ""
     
     @State private var showingInvalidBalanceAlert = false
     @State private var isShowingScanner = false
@@ -24,10 +25,14 @@ struct NewGiftCardView: View {
         Form {
             Section("Card Details") {
                 TextField("Store name", text: $store)
-                TextField("Enter balance", value: $balance, format: .number)
+                TextField("Enter balance", text: $balanceString)
                     .keyboardType(.decimalPad)
+                    .onChange(of: balanceString) { newValue in
+                        if let value = Double(newValue) {
+                            balance = value
+                        }
+                    }
                 TextField("Barcode value", text: $scannedCode)
-                TextField("Barcode type", text: $barcodeType)
                 Button("Scan gift card") {
                     isShowingScanner.toggle()
                 }

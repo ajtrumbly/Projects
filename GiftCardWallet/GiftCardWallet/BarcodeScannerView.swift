@@ -38,9 +38,7 @@ struct BarcodeScannerView: UIViewControllerRepresentable {
             var adjustedCode = code
             
             // Remove the "org.gs1." prefix if present
-            if adjustedType.hasPrefix("org.gs1.") {
-                adjustedType = String(adjustedType.dropFirst(8))
-            }
+            adjustedType = String(adjustedType.dropFirst(8))
             
             // Check for UPC-A
             if adjustedType == "EAN13" && code.count == 12 {
