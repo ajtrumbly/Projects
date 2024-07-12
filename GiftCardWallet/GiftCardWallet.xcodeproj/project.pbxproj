@@ -16,6 +16,7 @@
 		D93CEC7B2C3760140003CD63 /* GenerateBarcodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC7A2C3760140003CD63 /* GenerateBarcodeView.swift */; };
 		D93CEC7D2C3C6FA00003CD63 /* WalletCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC7C2C3C6FA00003CD63 /* WalletCardView.swift */; };
 		D93CEC7F2C3CC1670003CD63 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC7E2C3CC1670003CD63 /* Previewer.swift */; };
+		D93CEC832C41B8480003CD63 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC822C41B8480003CD63 /* Transaction.swift */; };
 		D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */; };
 		D98D897C2C3485E800982E23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D897B2C3485E800982E23 /* ContentView.swift */; };
 		D98D897E2C3485EA00982E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D897D2C3485EA00982E23 /* Assets.xcassets */; };
@@ -34,6 +35,7 @@
 		D93CEC7A2C3760140003CD63 /* GenerateBarcodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateBarcodeView.swift; sourceTree = "<group>"; };
 		D93CEC7C2C3C6FA00003CD63 /* WalletCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletCardView.swift; sourceTree = "<group>"; };
 		D93CEC7E2C3CC1670003CD63 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
+		D93CEC822C41B8480003CD63 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		D98D89762C3485E800982E23 /* GiftCardWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftCardWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardWalletApp.swift; sourceTree = "<group>"; };
 		D98D897B2C3485E800982E23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -86,6 +88,7 @@
 				D93CEC7A2C3760140003CD63 /* GenerateBarcodeView.swift */,
 				D93CEC6F2C35DA610003CD63 /* WalletView.swift */,
 				D98D89882C34864400982E23 /* GiftCard.swift */,
+				D93CEC822C41B8480003CD63 /* Transaction.swift */,
 				D98D897D2C3485EA00982E23 /* Assets.xcassets */,
 				D98D897F2C3485EA00982E23 /* GiftCardWallet.entitlements */,
 				D98D89802C3485EA00982E23 /* Preview Content */,
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D93CEC752C3671600003CD63 /* BarcodeScannerView.swift in Sources */,
+				D93CEC832C41B8480003CD63 /* Transaction.swift in Sources */,
 				D93CEC7D2C3C6FA00003CD63 /* WalletCardView.swift in Sources */,
 				D93CEC6E2C35D8A20003CD63 /* NewGiftCardView.swift in Sources */,
 				D93CEC7F2C3CC1670003CD63 /* Previewer.swift in Sources */,

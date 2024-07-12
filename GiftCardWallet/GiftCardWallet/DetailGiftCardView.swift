@@ -33,7 +33,7 @@ struct DetailGiftCardView: View {
                     Button(action: {
                         showingDelete = true
                     }) {
-                        Image(systemName: "ellipsis.circle")
+                        Image(systemName: "trash")
                             .font(.title2)
                     }
                     .padding()
@@ -59,6 +59,10 @@ struct DetailGiftCardView: View {
                                     .padding(.bottom)
                             }
                         }
+                    }
+                    
+                    Section("Transactions") {
+                        
                     }
                 }
                 .toolbar {

@@ -15,10 +15,12 @@ class GiftCard: Identifiable {
     var balance: Double
     var barcodeValue = ""
     var barcodeType = ""
+    var transactions: Transaction?
     
-    init(store: String, balance: Double) {
+    init(store: String, balance: Double, transactions: Transaction? = nil) {
         self.store = store
         self.balance = balance
+        self.transactions = transactions
     }
     
     static var example: GiftCard {
