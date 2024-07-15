@@ -10,17 +10,19 @@ import SwiftData
 
 @Model
 class GiftCard: Identifiable {
-    var id = UUID().uuidString
+    @Attribute(.unique) var id: String
     var store: String
     var balance: Double
-    var barcodeValue = ""
-    var barcodeType = ""
-    var transactions: Transaction?
+    var barcodeValue: String
+    var barcodeType: String
+    @Relationship(deleteRule: .cascade) var transactions: [Transaction] = []
     
-    init(store: String, balance: Double, transactions: Transaction? = nil) {
+    init(id: String = UUID().uuidString, store: String, balance: Double) {
+        self.id = id
         self.store = store
         self.balance = balance
-        self.transactions = transactions
+        self.barcodeValue = ""
+        self.barcodeType = ""
     }
     
     static var example: GiftCard {

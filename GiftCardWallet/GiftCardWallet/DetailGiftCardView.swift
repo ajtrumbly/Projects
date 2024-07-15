@@ -44,13 +44,16 @@ struct DetailGiftCardView: View {
                     Section("Card Details") {
                         TextField("Enter the name of the store", text: $giftCard.store)
                             .focused($focusedField, equals: .store)
-                        TextField("Enter the balance", value: $giftCard.balance, format: .number)
-                            .keyboardType(.decimalPad)
-                            .focused($focusedField, equals: .balance)
+                        HStack(spacing: 0) {
+                            Text("$")
+                            TextField("Enter the balance", value: $giftCard.balance, format: .number.precision(.fractionLength(2)))
+                                .keyboardType(.decimalPad)
+                                .focused($focusedField, equals: .balance)
+                        }
                     }
                     
                     Section("Scan Card") {
-                        ZStack{
+                        ZStack {
                             GenerateBarcodeView(giftCard: giftCard)
                             
                             VStack {
@@ -60,9 +63,30 @@ struct DetailGiftCardView: View {
                             }
                         }
                     }
-                    
+
                     Section("Transactions") {
+                        Button("Add Test Transaction") {
+                            let newTransaction = Transaction(amount: 10.0, date: Date(), notes: "Test Transaction", giftCard: giftCard)
+                            modelContext.insert(newTransaction)
+                            giftCard.balance -= newTransaction.amount
+                        }
                         
+                        let sortedTransactions = giftCard.transactions.sorted { $0.date > $1.date }
+                        
+                        if sortedTransactions.isEmpty {
+                            Text("No transactions yet")
+                        } else {
+                            ForEach(sortedTransactions) { transaction in
+                                HStack {
+                                    Text(transaction.date, style: .date)
+                                    Spacer()
+                                    Text(String(format: "$%.2f", transaction.amount))
+                                    if let notes = transaction.notes {
+                                        Text(notes)
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
                 .toolbar {

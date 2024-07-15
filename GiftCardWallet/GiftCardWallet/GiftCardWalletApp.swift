@@ -14,6 +14,6 @@ struct GiftCardWalletApp: App {
         WindowGroup {
             ContentView()
         }
-        .modelContainer(for: GiftCard.self)
+        .modelContainer(for: [GiftCard.self, Transaction.self])
     }
 }
