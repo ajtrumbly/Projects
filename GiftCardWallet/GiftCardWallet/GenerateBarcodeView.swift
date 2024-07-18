@@ -13,10 +13,14 @@ struct GenerateBarcodeView: View {
     
     var body: some View {
         if let barcodeImage = generateBarcode(from: giftCard.barcodeValue, type: giftCard.barcodeType) {
-            Image(uiImage: barcodeImage)
-                .resizable()
-                .scaledToFit()
-                .frame(height: 300)
+            VStack {
+                Image(uiImage: barcodeImage)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(height: 100)
+                
+                Text("Gift card code: \(giftCard.barcodeValue)")
+            }
         } else {
             Text("Gift card data is not present")
         }
@@ -46,13 +50,22 @@ struct GenerateBarcodeView: View {
         
         guard let ciImage = filter.outputImage else { return nil }
         
-        let transform = CGAffineTransform(scaleX: 30, y: 60)
-        let scaledCIImage = ciImage.transformed(by: transform)
+        // Trim white space
+        let extent = ciImage.extent.insetBy(dx: 10, dy: 10)
+        let format = CIFormat.RGBA8
+        guard let cgImage = CIContext().createCGImage(ciImage, from: extent, format: format, colorSpace: CGColorSpaceCreateDeviceRGB()) else { return nil }
         
-        let context = CIContext()
-        guard let cgImage = context.createCGImage(scaledCIImage, from: scaledCIImage.extent) else { return nil }
+        // Scale the image
+        let scale: CGFloat = 10.0
+        let size = CGSize(width: extent.width * scale, height: extent.height * scale)
+        UIGraphicsBeginImageContextWithOptions(size, false, 0)
+        guard let context = UIGraphicsGetCurrentContext() else { return nil }
+        context.interpolationQuality = .none
+        context.draw(cgImage, in: CGRect(origin: .zero, size: size))
+        let scaledImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
         
-        return UIImage(cgImage: cgImage)
+        return scaledImage
     }
 }
 

@@ -14,6 +14,7 @@ struct DetailGiftCardView: View {
     
     @Bindable var giftCard: GiftCard
     @State private var showingDelete = false
+    @State private var showingTransaction = false
     @FocusState private var focusedField: Field?
     
     enum Field: Hashable {
@@ -53,22 +54,12 @@ struct DetailGiftCardView: View {
                     }
                     
                     Section("Scan Card") {
-                        ZStack {
-                            GenerateBarcodeView(giftCard: giftCard)
-                            
-                            VStack {
-                                Spacer()
-                                Text("Gift card code: \(giftCard.barcodeValue)")
-                                    .padding(.bottom)
-                            }
-                        }
+                        GenerateBarcodeView(giftCard: giftCard)
                     }
 
                     Section("Transactions") {
                         Button("Add Test Transaction") {
-                            let newTransaction = Transaction(amount: 10.0, date: Date(), notes: "Test Transaction", giftCard: giftCard)
-                            modelContext.insert(newTransaction)
-                            giftCard.balance -= newTransaction.amount
+                            showingTransaction = true
                         }
                         
                         let sortedTransactions = giftCard.transactions.sorted { $0.date > $1.date }
@@ -104,6 +95,10 @@ struct DetailGiftCardView: View {
             Button("Cancel", role: .cancel) { }
         } message: {
             Text("Are you sure you want to delete this gift card? This action cannot be undone.")
+        }
+        .sheet(isPresented: $showingTransaction) {
+            TransactionView(giftCard: giftCard)
+                .presentationDetents([.medium])
         }
     }
     

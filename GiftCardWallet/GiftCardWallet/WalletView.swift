@@ -17,13 +17,12 @@ extension View {
 
 struct WalletView: View {
     @Environment(\.modelContext) var modelContext
-    @Query var wallet: [GiftCard]
+    @Query(sort: \GiftCard.store) var wallet: [GiftCard]
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView(.vertical, showsIndicators: false) {
                 HStack {
-                    Spacer()
                     VStack {
                         ForEach(wallet.indices, id: \.self) { index in
                             let giftCard = wallet[index]
@@ -33,8 +32,6 @@ struct WalletView: View {
                             }
                         }
                     }
-                    .frame(height: geometry.size.height + CGFloat(wallet.count - 1) * 160)
-                    Spacer()
                 }
             }
             .background(Color(UIColor.systemGroupedBackground))
