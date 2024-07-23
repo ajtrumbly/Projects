@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D93CEC872C4EEA7A0003CD63 /* DataController-Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC862C4EEA7A0003CD63 /* DataController-Notifications.swift */; };
 		D98D88DE2C1B7DEE00982E23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98D88E02C1B7DEE00982E23 /* Localizable.strings */; };
 		D98D88E22C1B7E8500982E23 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = D98D88E42C1B7E8500982E23 /* Localizable.stringsdict */; };
 		D98D88ED2C1B801C00982E23 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = D98D88EF2C1B801C00982E23 /* Awards.json */; };
@@ -65,6 +66,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D93CEC862C4EEA7A0003CD63 /* DataController-Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Notifications.swift"; sourceTree = "<group>"; };
 		D98D88DF2C1B7DEE00982E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D98D88E12C1B7E0600982E23 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D98D88E32C1B7E8500982E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -279,6 +281,7 @@
 				D98D89062C236C0500982E23 /* Issues */,
 				D98D89032C236A0C00982E23 /* Localization */,
 				D994776F2C0EA7C4009B32AB /* DataController.swift */,
+				D93CEC862C4EEA7A0003CD63 /* DataController-Notifications.swift */,
 				D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */,
 				D99477642C0EA3B9009B32AB /* Preview Content */,
 			);
@@ -473,6 +476,7 @@
 				D98D88FC2C1CE76E00982E23 /* UserFilterRow.swift in Sources */,
 				D99477822C1242F5009B32AB /* NoIssueView.swift in Sources */,
 				D994777A2C0FA092009B32AB /* CoreDataHelpers.swift in Sources */,
+				D93CEC872C4EEA7A0003CD63 /* DataController-Notifications.swift in Sources */,
 				D994775E2C0EA3B8009B32AB /* PortfolioAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

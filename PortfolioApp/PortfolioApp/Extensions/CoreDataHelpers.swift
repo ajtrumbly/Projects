@@ -53,6 +53,11 @@ extension Issue {
         issueCreationDate.formatted(date: .numeric, time: .omitted)
     }
     
+    var issueReminderTime: Date {
+        get { reminderTime ?? .now }
+        set { reminderTime = newValue }
+    }
+    
     static var example: Issue {
         let controller = DataController(inMemory: true)
         let viewContent = controller.container.viewContext
