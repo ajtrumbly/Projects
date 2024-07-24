@@ -36,6 +36,9 @@ class DataController: ObservableObject {
     @Published var sortType = SortType.dateCreated
     @Published var sortNewestFirst = true
     
+    let defaults: UserDefaults
+    
+    private var storeTask: Task<Void, Never>?
     private var saveTask: Task<Void, Error>?
     static var preview: DataController = {
         let dataController = DataController(inMemory: true)
@@ -73,8 +76,14 @@ class DataController: ObservableObject {
     /// Initializes a data controller, either in memory (for testing use such as previewing),
     /// or on permanent storage (for use in regular app runs.) Defaults to permanent storage.
     /// - Parameter inMemory: Whether to store this data intemporary memory or not
-    init(inMemory: Bool = false) {
+    /// - Parameter defaults: The UserDefaulst suite where user defaults are stored
+    init(inMemory: Bool = false, defaults: UserDefaults = .standard) {
+        self.defaults = defaults
         container = NSPersistentCloudKitContainer(name: "Main", managedObjectModel: Self.model)
+        
+        storeTask = Task {
+            await monitorTransactions()
+        }
 
         // For testing and previewing purposes, we create a
         // temporary, in-memory databse by writing to /dev/null
@@ -266,11 +275,22 @@ class DataController: ObservableObject {
         return allIssues
     }
     
-    func newTag() {
+    func newTag() -> Bool {
+        var shouldCreate = fullVersionUnlocked
+        
+        if shouldCreate == false {
+            shouldCreate = count(for: Tag.fetchRequest()) < 3
+        }
+        
+        guard shouldCreate else {
+            return false
+        }
+        
         let tag = Tag(context: container.viewContext)
         tag.id = UUID()
         tag.name = NSLocalizedString("New tags", comment: "Create a new tag")
         save()
+        return true
     }
     
     func newIssue() {

@@ -7,7 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D92BDAD42C503A6C00E2FB1F /* StoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D92BDAD32C503A6C00E2FB1F /* StoreView.swift */; };
 		D93CEC872C4EEA7A0003CD63 /* DataController-Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC862C4EEA7A0003CD63 /* DataController-Notifications.swift */; };
+		D93CEC892C5036570003CD63 /* Configuration.storekit in Resources */ = {isa = PBXBuildFile; fileRef = D93CEC882C5036570003CD63 /* Configuration.storekit */; };
+		D93CEC8B2C5037310003CD63 /* DataController-StoreKit.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC8A2C5037310003CD63 /* DataController-StoreKit.swift */; };
 		D98D88DE2C1B7DEE00982E23 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = D98D88E02C1B7DEE00982E23 /* Localizable.strings */; };
 		D98D88E22C1B7E8500982E23 /* Localizable.stringsdict in Resources */ = {isa = PBXBuildFile; fileRef = D98D88E42C1B7E8500982E23 /* Localizable.stringsdict */; };
 		D98D88ED2C1B801C00982E23 /* Awards.json in Resources */ = {isa = PBXBuildFile; fileRef = D98D88EF2C1B801C00982E23 /* Awards.json */; };
@@ -66,7 +69,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D92BDAD32C503A6C00E2FB1F /* StoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreView.swift; sourceTree = "<group>"; };
 		D93CEC862C4EEA7A0003CD63 /* DataController-Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-Notifications.swift"; sourceTree = "<group>"; };
+		D93CEC882C5036570003CD63 /* Configuration.storekit */ = {isa = PBXFileReference; lastKnownFileType = text; path = Configuration.storekit; sourceTree = SOURCE_ROOT; };
+		D93CEC8A2C5037310003CD63 /* DataController-StoreKit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DataController-StoreKit.swift"; sourceTree = "<group>"; };
 		D98D88DF2C1B7DEE00982E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D98D88E12C1B7E0600982E23 /* hu */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = hu; path = hu.lproj/Localizable.strings; sourceTree = "<group>"; };
 		D98D88E32C1B7E8500982E23 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.stringsdict; name = en; path = en.lproj/Localizable.stringsdict; sourceTree = "<group>"; };
@@ -141,6 +147,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D92BDAD22C503A5900E2FB1F /* Store */ = {
+			isa = PBXGroup;
+			children = (
+				D92BDAD32C503A6C00E2FB1F /* StoreView.swift */,
+			);
+			path = Store;
+			sourceTree = "<group>";
+		};
 		D98D89022C236A0100982E23 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -163,6 +177,7 @@
 		D98D89042C236A1700982E23 /* Configuration */ = {
 			isa = PBXGroup;
 			children = (
+				D93CEC882C5036570003CD63 /* Configuration.storekit */,
 				D99477712C0EACB4009B32AB /* Info.plist */,
 				D994776C2C0EA5DA009B32AB /* Main.xcdatamodeld */,
 				D99477632C0EA3B9009B32AB /* PortfolioApp.entitlements */,
@@ -271,6 +286,7 @@
 		D994775C2C0EA3B8009B32AB /* PortfolioApp */ = {
 			isa = PBXGroup;
 			children = (
+				D92BDAD22C503A5900E2FB1F /* Store */,
 				D99477612C0EA3B9009B32AB /* Assets.xcassets */,
 				D98D89072C236C0A00982E23 /* Awards */,
 				D99477862C19E1DA009B32AB /* Colors.xcassets */,
@@ -281,6 +297,7 @@
 				D98D89062C236C0500982E23 /* Issues */,
 				D98D89032C236A0C00982E23 /* Localization */,
 				D994776F2C0EA7C4009B32AB /* DataController.swift */,
+				D93CEC8A2C5037310003CD63 /* DataController-StoreKit.swift */,
 				D93CEC862C4EEA7A0003CD63 /* DataController-Notifications.swift */,
 				D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */,
 				D99477642C0EA3B9009B32AB /* Preview Content */,
@@ -417,6 +434,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D93CEC892C5036570003CD63 /* Configuration.storekit in Resources */,
 				D98D88DE2C1B7DEE00982E23 /* Localizable.strings in Resources */,
 				D99477662C0EA3B9009B32AB /* Preview Assets.xcassets in Resources */,
 				D99477882C19E1DA009B32AB /* Colors.xcassets in Resources */,
@@ -462,9 +480,11 @@
 				D98D88F42C1CE2D800982E23 /* IssueViewToolbar.swift in Sources */,
 				D98D88FA2C1CE6E300982E23 /* SmartFilterRow.swift in Sources */,
 				D994778C2C19E31D009B32AB /* AwardsView.swift in Sources */,
+				D93CEC8B2C5037310003CD63 /* DataController-StoreKit.swift in Sources */,
 				D994777C2C0FA196009B32AB /* TagCoreDataHelpers.swift in Sources */,
 				D994776E2C0EA5DA009B32AB /* Main.xcdatamodeld in Sources */,
 				D994777E2C10F1E6009B32AB /* IssueRowView.swift in Sources */,
+				D92BDAD42C503A6C00E2FB1F /* StoreView.swift in Sources */,
 				D99477842C19DB2E009B32AB /* Bundle-Decodable.swift in Sources */,
 				D99477762C0EAEE2009B32AB /* DetailView.swift in Sources */,
 				D99477702C0EA7C4009B32AB /* DataController.swift in Sources */,
