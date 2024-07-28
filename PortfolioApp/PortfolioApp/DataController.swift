@@ -6,6 +6,7 @@
 //
 
 import CoreData
+import StoreKit
 import SwiftUI
 
 enum SortType: String {
@@ -37,6 +38,8 @@ class DataController: ObservableObject {
     @Published var sortNewestFirst = true
     
     let defaults: UserDefaults
+    
+    @Published var products = [Product]()
     
     private var storeTask: Task<Void, Never>?
     private var saveTask: Task<Void, Error>?
@@ -277,18 +280,18 @@ class DataController: ObservableObject {
     
     func newTag() -> Bool {
         var shouldCreate = fullVersionUnlocked
-        
+
         if shouldCreate == false {
             shouldCreate = count(for: Tag.fetchRequest()) < 3
         }
-        
+
         guard shouldCreate else {
             return false
         }
-        
+
         let tag = Tag(context: container.viewContext)
         tag.id = UUID()
-        tag.name = NSLocalizedString("New tags", comment: "Create a new tag")
+        tag.name = NSLocalizedString("New tag", comment: "Create a new tag")
         save()
         return true
     }
@@ -332,6 +335,9 @@ class DataController: ObservableObject {
             let fetchRequest = Tag.fetchRequest()
             let awardCount = count(for: fetchRequest)
             return awardCount >= award.value
+            
+        case "unlock":
+            return fullVersionUnlocked
             
         default:
             // an unknown award criterion. Should never happen

@@ -16,27 +16,31 @@
   "products" : [
     {
       "displayPrice" : "2.99",
-      "familyShareable" : false,
-      "internalID" : "1334ACA7",
+      "familyShareable" : true,
+      "internalID" : "FA39EAE9",
       "localizations" : [
         {
-          "description" : "",
-          "displayName" : "",
+          "description" : "Purchase premium unlock to use the full app",
+          "displayName" : "Premium Unlock",
           "locale" : "en_US"
         }
       ],
       "productID" : "me.Trumbly.Austin.PortfolioApp.premiumUnlock",
       "referenceName" : "Premium Unlock",
-      "type" : "Consumable"
+      "type" : "NonConsumable"
     }
   ],
   "settings" : {
+    "_askToBuyEnabled" : true,
     "_failTransactionsEnabled" : false,
     "_locale" : "en_US",
     "_storefront" : "USA",
     "_storeKitErrors" : [
       {
-        "current" : null,
+        "current" : {
+          "index" : 2,
+          "type" : "generic"
+        },
         "enabled" : false,
         "name" : "Load Products"
       },

@@ -14,7 +14,7 @@ struct TransactionView: View {
     
     @Bindable var giftCard: GiftCard
     @State private var date = Date.now
-    @State private var notes = "Notes"
+    @State private var notes = ""
     @State private var amount = 0.0
     
     @FocusState private var focusedField: Field?
@@ -25,14 +25,16 @@ struct TransactionView: View {
     
     var body: some View {
         Form {
-            TextField("Notes", text: $notes)
+            TextField("", text: $notes, prompt: Text("Add a note"))
                 .focused($focusedField, equals: .notes)
             
             HStack(spacing: 0) {
                 Text("$")
-                TextField("Enter the balance", value: $amount, format: .number.precision(.fractionLength(2)))
+                TextField("", value: $amount, format: .number.precision(.fractionLength(2)), prompt: Text("Enter transaction amount"))
                     .keyboardType(.decimalPad)
                     .focused($focusedField, equals: .amount)
+                
+                Image(systemName: "giftcard.fill")
             }
             
             DatePicker("Transaction Date", selection: $date)

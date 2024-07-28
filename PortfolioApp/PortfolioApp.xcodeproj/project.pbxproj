@@ -31,6 +31,9 @@
 		D98D89342C29FE8D00982E23 /* PerformanceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89332C29FE8D00982E23 /* PerformanceTests.swift */; };
 		D98D893C2C2A00FB00982E23 /* PortfolioAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D893B2C2A00FB00982E23 /* PortfolioAppUITests.swift */; };
 		D98D893E2C2A00FB00982E23 /* PortfolioAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D893D2C2A00FB00982E23 /* PortfolioAppUITestsLaunchTests.swift */; };
+		D9931DAC2C56D1B00022EA6F /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9931DAB2C56D1B00022EA6F /* ContentViewModel.swift */; };
+		D9931DAE2C56D6940022EA6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9931DAD2C56D6940022EA6F /* AppDelegate.swift */; };
+		D9931DB02C56D6990022EA6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9931DAF2C56D6990022EA6F /* SceneDelegate.swift */; };
 		D994775E2C0EA3B8009B32AB /* PortfolioAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */; };
 		D99477602C0EA3B8009B32AB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D994775F2C0EA3B8009B32AB /* ContentView.swift */; };
 		D99477622C0EA3B9009B32AB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D99477612C0EA3B9009B32AB /* Assets.xcassets */; };
@@ -99,6 +102,9 @@
 		D98D89392C2A00FB00982E23 /* PortfolioAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PortfolioAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D893B2C2A00FB00982E23 /* PortfolioAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppUITests.swift; sourceTree = "<group>"; };
 		D98D893D2C2A00FB00982E23 /* PortfolioAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D9931DAB2C56D1B00022EA6F /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		D9931DAD2C56D6940022EA6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		D9931DAF2C56D6990022EA6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		D994775A2C0EA3B8009B32AB /* PortfolioApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PortfolioApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D994775D2C0EA3B8009B32AB /* PortfolioAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PortfolioAppApp.swift; sourceTree = "<group>"; };
 		D994775F2C0EA3B8009B32AB /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -201,6 +207,9 @@
 			isa = PBXGroup;
 			children = (
 				D994775F2C0EA3B8009B32AB /* ContentView.swift */,
+				D9931DAD2C56D6940022EA6F /* AppDelegate.swift */,
+				D9931DAF2C56D6990022EA6F /* SceneDelegate.swift */,
+				D9931DAB2C56D1B00022EA6F /* ContentViewModel.swift */,
 				D98D88F52C1CE37800982E23 /* ContentViewToolbar.swift */,
 				D994777D2C10F1E6009B32AB /* IssueRowView.swift */,
 			);
@@ -482,7 +491,10 @@
 				D994778C2C19E31D009B32AB /* AwardsView.swift in Sources */,
 				D93CEC8B2C5037310003CD63 /* DataController-StoreKit.swift in Sources */,
 				D994777C2C0FA196009B32AB /* TagCoreDataHelpers.swift in Sources */,
+				D9931DAE2C56D6940022EA6F /* AppDelegate.swift in Sources */,
 				D994776E2C0EA5DA009B32AB /* Main.xcdatamodeld in Sources */,
+				D9931DAC2C56D1B00022EA6F /* ContentViewModel.swift in Sources */,
+				D9931DB02C56D6990022EA6F /* SceneDelegate.swift in Sources */,
 				D994777E2C10F1E6009B32AB /* IssueRowView.swift in Sources */,
 				D92BDAD42C503A6C00E2FB1F /* StoreView.swift in Sources */,
 				D99477842C19DB2E009B32AB /* Bundle-Decodable.swift in Sources */,

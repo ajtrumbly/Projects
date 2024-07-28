@@ -9,6 +9,11 @@ import SwiftUI
 
 struct ContentView: View {
     @EnvironmentObject var dataController: DataController
+    @Environment(\.requestReview) var requestReview
+    
+    var shouldRequestReview: Bool {
+        dataController.count(for: Tag.fetchRequest()) >= 5
+    }
 
     var body: some View {
         List(selection: $dataController.selectedIssue) {
@@ -29,7 +34,14 @@ struct ContentView: View {
             Text(tag.tagName)
         }
         .toolbar(content: ContentViewToolbar.init)
+        .onAppear(perform: askForReview)
+        .onOpenURL(perform: openURL)
     }
+    
+//    init(dataController: DataController) {
+//        let viewModel = ViewModel(dataController: dataController)
+//        _viewModel = StateObject(wrappedValue: viewModel)
+//    }
 
     func delete(_ offsets: IndexSet) {
         let issues = dataController.issuesForSelectedFilter()
@@ -39,8 +51,16 @@ struct ContentView: View {
             dataController.delete(item)
         }
     }
-}
-
-#Preview {
-    ContentView()
+    
+    func askForReview() {
+        if shouldRequestReview {
+            requestReview()
+        }
+    }
+    
+    func openURL(_ url: URL) {
+        if url.absoluteString.contains("newIssue") {
+            dataController.newIssue()
+        }
+    }
 }

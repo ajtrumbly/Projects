@@ -40,7 +40,7 @@ struct SidebarView: View {
         }
         .navigationTitle("Inbox")
         .toolbar {
-            SidebarViewToolbar(showingAwards: $showingAwards)
+            SidebarViewToolbar()
         }
         .alert("Rename tag", isPresented: $renamingTag) {
             Button("OK", action: completeRename)

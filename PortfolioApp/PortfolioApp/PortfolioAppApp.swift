@@ -13,6 +13,8 @@ struct PortfolioAppApp: App {
     @StateObject var dataController = DataController()
     @Environment(\.scenePhase) var scenePhase
     
+    @UIApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
+    
     var body: some Scene {
         WindowGroup {
             NavigationSplitView {
@@ -24,7 +26,7 @@ struct PortfolioAppApp: App {
             }
             .environment(\.managedObjectContext, dataController.container.viewContext)
             .environmentObject(dataController)
-            .onChange(of: scenePhase) { phase in
+            .onChange(of: scenePhase) {_, phase in
                 if phase != .active {
                     dataController.save()
                 }
