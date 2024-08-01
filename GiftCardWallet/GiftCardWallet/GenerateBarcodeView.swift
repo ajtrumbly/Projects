@@ -17,12 +17,11 @@ struct GenerateBarcodeView: View {
                 Image(uiImage: barcodeImage)
                     .resizable()
                     .scaledToFit()
-                    .frame(height: 100)
+                    .frame(height: .infinity)
+                    .padding()
                 
                 Text("Gift card code: \(giftCard.barcodeValue)")
             }
-        } else {
-            Text("Gift card data is not present")
         }
     }
     

@@ -18,11 +18,13 @@
 		D93CEC7F2C3CC1670003CD63 /* Previewer.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC7E2C3CC1670003CD63 /* Previewer.swift */; };
 		D93CEC832C41B8480003CD63 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC822C41B8480003CD63 /* Transaction.swift */; };
 		D93CEC852C46F9660003CD63 /* TransactionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D93CEC842C46F9660003CD63 /* TransactionView.swift */; };
+		D97C6B132C5C1C47005C58EE /* SheetScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C6B122C5C1C47005C58EE /* SheetScannerView.swift */; };
 		D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */; };
 		D98D897C2C3485E800982E23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D897B2C3485E800982E23 /* ContentView.swift */; };
 		D98D897E2C3485EA00982E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D897D2C3485EA00982E23 /* Assets.xcassets */; };
 		D98D89822C3485EA00982E23 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D89812C3485EA00982E23 /* Preview Assets.xcassets */; };
 		D98D89892C34864400982E23 /* GiftCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89882C34864400982E23 /* GiftCard.swift */; };
+		D9931DD92C58F49A0022EA6F /* WalletTapCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D9931DD82C58F49A0022EA6F /* WalletTapCardView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,7 @@
 		D93CEC7E2C3CC1670003CD63 /* Previewer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Previewer.swift; sourceTree = "<group>"; };
 		D93CEC822C41B8480003CD63 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		D93CEC842C46F9660003CD63 /* TransactionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionView.swift; sourceTree = "<group>"; };
+		D97C6B122C5C1C47005C58EE /* SheetScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScannerView.swift; sourceTree = "<group>"; };
 		D98D89762C3485E800982E23 /* GiftCardWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftCardWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardWalletApp.swift; sourceTree = "<group>"; };
 		D98D897B2C3485E800982E23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +48,7 @@
 		D98D897F2C3485EA00982E23 /* GiftCardWallet.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GiftCardWallet.entitlements; sourceTree = "<group>"; };
 		D98D89812C3485EA00982E23 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		D98D89882C34864400982E23 /* GiftCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCard.swift; sourceTree = "<group>"; };
+		D9931DD82C58F49A0022EA6F /* WalletTapCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletTapCardView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,10 +87,12 @@
 				D98D897B2C3485E800982E23 /* ContentView.swift */,
 				D93CEC7E2C3CC1670003CD63 /* Previewer.swift */,
 				D93CEC6D2C35D8A20003CD63 /* NewGiftCardView.swift */,
+				D97C6B122C5C1C47005C58EE /* SheetScannerView.swift */,
 				D93CEC782C375C6B0003CD63 /* CardOverlayView.swift */,
 				D93CEC712C366CBB0003CD63 /* BarcodeScanner.swift */,
 				D93CEC742C3671600003CD63 /* BarcodeScannerView.swift */,
 				D93CEC6B2C35991D0003CD63 /* DetailGiftCardView.swift */,
+				D9931DD82C58F49A0022EA6F /* WalletTapCardView.swift */,
 				D93CEC842C46F9660003CD63 /* TransactionView.swift */,
 				D93CEC7A2C3760140003CD63 /* GenerateBarcodeView.swift */,
 				D93CEC6F2C35DA610003CD63 /* WalletView.swift */,
@@ -182,6 +188,7 @@
 				D93CEC7D2C3C6FA00003CD63 /* WalletCardView.swift in Sources */,
 				D93CEC6E2C35D8A20003CD63 /* NewGiftCardView.swift in Sources */,
 				D93CEC7F2C3CC1670003CD63 /* Previewer.swift in Sources */,
+				D9931DD92C58F49A0022EA6F /* WalletTapCardView.swift in Sources */,
 				D93CEC852C46F9660003CD63 /* TransactionView.swift in Sources */,
 				D93CEC722C366CBB0003CD63 /* BarcodeScanner.swift in Sources */,
 				D93CEC792C375C6B0003CD63 /* CardOverlayView.swift in Sources */,
@@ -191,6 +198,7 @@
 				D98D897C2C3485E800982E23 /* ContentView.swift in Sources */,
 				D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */,
 				D93CEC702C35DA610003CD63 /* WalletView.swift in Sources */,
+				D97C6B132C5C1C47005C58EE /* SheetScannerView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

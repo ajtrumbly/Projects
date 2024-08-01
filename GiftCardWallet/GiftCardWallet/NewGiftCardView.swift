@@ -24,15 +24,15 @@ struct NewGiftCardView: View {
     var body: some View {
         Form {
             Section("Card Details") {
-                TextField("Store name", text: $store)
-                TextField("Enter balance", text: $balanceString)
+                TextField("", text: $store, prompt: Text("Store"))
+                TextField("", text: $balanceString, prompt: Text("Balance"))
                     .keyboardType(.decimalPad)
-                    .onChange(of: balanceString) { newValue in
+                    .onChange(of: balanceString) {_, newValue in
                         if let value = Double(newValue) {
                             balance = value
                         }
                     }
-                TextField("Barcode value", text: $scannedCode)
+                TextField("", text: $scannedCode, prompt: Text("Gift Card Barcode"))
                 Button("Scan gift card") {
                     isShowingScanner.toggle()
                 }
@@ -54,29 +54,12 @@ struct NewGiftCardView: View {
         }
         .navigationTitle("Add Gift Card")
         .sheet(isPresented: $isShowingScanner) {
-            NavigationStack {
-                ZStack {
-                    BarcodeScannerView(scannedCode: $scannedCode, barcodeType: $barcodeType)
-                        
-                    CardOverlayView()
-                }
-                .toolbar {
-                    ToolbarItem(placement: .navigationBarTrailing) {
-                        Button(action: {
-                            isShowingScanner = false
-                        }) {
-                            Image(systemName: "xmark.circle.fill")
-                                .foregroundStyle(.gray)
-                        }
-                    }
-                }
-            }
-            .presentationDetents([.medium])
+            SheetScannerView(barcodeValue: $scannedCode, barcodeType: $barcodeType, isShowingScanner: $isShowingScanner)
         }
     }
     
     func makeGiftCard() {
-        let giftCard = GiftCard(store: store, balance: balance)
+        var giftCard = GiftCard(store: store, balance: balance)
         if scannedCode.isEmpty == false {
             giftCard.barcodeValue = scannedCode
         }

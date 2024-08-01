@@ -15,6 +15,7 @@ struct DetailGiftCardView: View {
     @Bindable var giftCard: GiftCard
     @State private var showingDelete = false
     @State private var showingTransaction = false
+    @State private var isShowingScanner = false
     @FocusState private var focusedField: Field?
     
     enum Field: Hashable {
@@ -54,7 +55,15 @@ struct DetailGiftCardView: View {
                     }
                     
                     Section("Scan Card") {
-                        GenerateBarcodeView(giftCard: giftCard)
+                        if giftCard.barcodeValue.isEmpty == false {
+                            GenerateBarcodeView(giftCard: giftCard)
+                        } else {
+                            Button {
+                                isShowingScanner = true
+                            } label: {
+                                Label("Scan gift card", systemImage: "camera")
+                            }
+                        }
                     }
 
                     Section("Transactions") {
@@ -99,6 +108,9 @@ struct DetailGiftCardView: View {
         .sheet(isPresented: $showingTransaction) {
             TransactionView(giftCard: giftCard)
                 .presentationDetents([.medium])
+        }
+        .sheet(isPresented: $isShowingScanner) {
+            SheetScannerView(barcodeValue: $giftCard.barcodeValue, barcodeType: $giftCard.barcodeValue, isShowingScanner: $isShowingScanner)
         }
     }
     
