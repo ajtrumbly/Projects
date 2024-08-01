@@ -11,6 +11,8 @@ struct ContentView: View {
     @EnvironmentObject var dataController: DataController
     @Environment(\.requestReview) var requestReview
     
+    private let newIssueActivity = "me.Trumbly.Austin.PortfolioApp.newIssue"
+    
     var shouldRequestReview: Bool {
         dataController.count(for: Tag.fetchRequest()) >= 5
     }
@@ -36,6 +38,11 @@ struct ContentView: View {
         .toolbar(content: ContentViewToolbar.init)
         .onAppear(perform: askForReview)
         .onOpenURL(perform: openURL)
+        .userActivity(newIssueActivity) { activity in
+            activity.isEligibleForPrediction = true
+            activity.title = "New Issue"
+        }
+        .onContinueUserActivity(newIssueActivity, perform: resumeActivity)
     }
     
 //    init(dataController: DataController) {
@@ -62,5 +69,9 @@ struct ContentView: View {
         if url.absoluteString.contains("newIssue") {
             dataController.newIssue()
         }
+    }
+    
+    func resumeActivity(_ userActivity: NSUserActivity) {
+        dataController.newIssue()
     }
 }

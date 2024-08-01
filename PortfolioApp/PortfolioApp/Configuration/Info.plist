@@ -15,6 +15,10 @@
 			</array>
 		</dict>
 	</array>
+	<key>NSUserActivityTypes</key>
+	<array>
+		<string>me.Trumbly.Austin.PortfolioApp.newIssue</string>
+	</array>
 	<key>UIApplicationShortcutItems</key>
 	<array>
 		<dict>
