@@ -59,7 +59,7 @@ struct NewGiftCardView: View {
     }
     
     func makeGiftCard() {
-        var giftCard = GiftCard(store: store, balance: balance)
+        let giftCard = GiftCard(store: store, balance: balance)
         if scannedCode.isEmpty == false {
             giftCard.barcodeValue = scannedCode
         }

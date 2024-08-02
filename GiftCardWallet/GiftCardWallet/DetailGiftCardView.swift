@@ -75,7 +75,7 @@ struct DetailGiftCardView: View {
                     }
 
                     Section("Transactions") {
-                        Button("Add Test Transaction") {
+                        Button("Add Transaction") {
                             showingTransaction = true
                         }
                         

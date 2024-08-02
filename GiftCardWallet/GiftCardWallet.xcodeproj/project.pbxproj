@@ -21,6 +21,7 @@
 		D97C6B132C5C1C47005C58EE /* SheetScannerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C6B122C5C1C47005C58EE /* SheetScannerView.swift */; };
 		D97C6B152C5CA198005C58EE /* CopyFeedbackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C6B142C5CA198005C58EE /* CopyFeedbackView.swift */; };
 		D97C6B192C5CA79C005C58EE /* CopyFeedbackModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C6B182C5CA79C005C58EE /* CopyFeedbackModifier.swift */; };
+		D97C6B292C5D6978005C58EE /* WalletToolbarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D97C6B282C5D6978005C58EE /* WalletToolbarView.swift */; };
 		D98D897A2C3485E800982E23 /* GiftCardWalletApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */; };
 		D98D897C2C3485E800982E23 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D98D897B2C3485E800982E23 /* ContentView.swift */; };
 		D98D897E2C3485EA00982E23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D98D897D2C3485EA00982E23 /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		D97C6B122C5C1C47005C58EE /* SheetScannerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SheetScannerView.swift; sourceTree = "<group>"; };
 		D97C6B142C5CA198005C58EE /* CopyFeedbackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyFeedbackView.swift; sourceTree = "<group>"; };
 		D97C6B182C5CA79C005C58EE /* CopyFeedbackModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CopyFeedbackModifier.swift; sourceTree = "<group>"; };
+		D97C6B282C5D6978005C58EE /* WalletToolbarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletToolbarView.swift; sourceTree = "<group>"; };
 		D98D89762C3485E800982E23 /* GiftCardWallet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GiftCardWallet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D98D89792C3485E800982E23 /* GiftCardWalletApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GiftCardWalletApp.swift; sourceTree = "<group>"; };
 		D98D897B2C3485E800982E23 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -69,6 +71,7 @@
 		D98D896D2C3485E800982E23 = {
 			isa = PBXGroup;
 			children = (
+				D97C6B282C5D6978005C58EE /* WalletToolbarView.swift */,
 				D98D89782C3485E800982E23 /* GiftCardWallet */,
 				D98D89772C3485E800982E23 /* Products */,
 			);
@@ -193,6 +196,7 @@
 				D93CEC752C3671600003CD63 /* BarcodeScannerView.swift in Sources */,
 				D93CEC832C41B8480003CD63 /* Transaction.swift in Sources */,
 				D93CEC7D2C3C6FA00003CD63 /* WalletCardView.swift in Sources */,
+				D97C6B292C5D6978005C58EE /* WalletToolbarView.swift in Sources */,
 				D93CEC6E2C35D8A20003CD63 /* NewGiftCardView.swift in Sources */,
 				D93CEC7F2C3CC1670003CD63 /* Previewer.swift in Sources */,
 				D9931DD92C58F49A0022EA6F /* WalletTapCardView.swift in Sources */,
@@ -344,7 +348,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GiftCardWallet/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use your camera to scan barcodes";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use your camera to scan gift cards";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;
@@ -385,7 +389,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = GiftCardWallet/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use your camera to scan barcodes";
+				INFOPLIST_KEY_NSCameraUsageDescription = "We need to use your camera to scan gift cards";
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphoneos*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSceneManifest_Generation[sdk=iphonesimulator*]" = YES;
 				"INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents[sdk=iphoneos*]" = YES;

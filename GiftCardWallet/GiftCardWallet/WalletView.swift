@@ -74,15 +74,7 @@ struct WalletView: View {
                 }
             }
             .toolbar {
-                if selectedCard == nil {
-                    NavigationLink(destination: NewGiftCardView()) {
-                        Label("Add Gift Card", systemImage: "plus")
-                    }
-                } else {
-                    NavigationLink(destination: DetailGiftCardView(giftCard: selectedCard!)) {
-                        Label("Card Details", systemImage: "ellipsis.circle")
-                    }
-                }
+                WalletToolbarView(selectedCard: $selectedCard)
             }
         }
     }
