@@ -20,13 +20,19 @@ extension View {
 }
 
 struct WalletView: View {
-    @Environment(\.modelContext) var modelContext
-    @Query(sort: \GiftCard.store) var wallet: [GiftCard]
-    
-    @State private var selectedCard: GiftCard? = nil
+    @State private var selectedTab = 0
+    @State private var selectedCard: GiftCard?
     @State private var cardOffset: CGSize = .zero
     @State private var cardScale: CGFloat = 1.0
-    
+
+    @Query private var allGiftCards: [GiftCard]
+    @Query private var favoriteGiftCards: [GiftCard]
+
+    init() {
+        _allGiftCards = Query(sort: \GiftCard.store)
+        _favoriteGiftCards = Query(filter: #Predicate<GiftCard> { $0.favorite == true }, sort: \GiftCard.store)
+    }
+
     var body: some View {
         NavigationStack {
             VStack {
@@ -49,19 +55,20 @@ struct WalletView: View {
                                     cardScale = 1.0
                                 }
                             }
-                            .zIndex(1) // Ensure the selected card is always on top
+                            .zIndex(1)
                     } else {
-                        ScrollView(.vertical, showsIndicators: false) {
-                            ForEach(wallet.indices, id: \.self) { index in
-                                WalletCardView(giftCard: wallet[index])
-                                    .stacked(at: index, in: wallet.count)
-                                    .onTapGesture {
-                                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
-                                            selectedCard = wallet[index]
-                                            cardScale = 1.1
-                                        }
-                                    }
-                            }
+                        TabView(selection: $selectedTab) {
+                            cardListView(cards: favoriteGiftCards)
+                                .tabItem {
+                                    Label("Favorites", systemImage: "star.fill")
+                                }
+                                .tag(0)
+                            
+                            cardListView(cards: allGiftCards)
+                                .tabItem {
+                                    Label("All Cards", systemImage: "creditcard")
+                                }
+                                .tag(1)
                         }
                     }
                 }
@@ -76,6 +83,22 @@ struct WalletView: View {
                         Label("Card Details", systemImage: "ellipsis.circle")
                     }
                 }
+            }
+        }
+    }
+
+    @ViewBuilder
+    func cardListView(cards: [GiftCard]) -> some View {
+        ScrollView(.vertical, showsIndicators: false) {
+            ForEach(cards.indices, id: \.self) { index in
+                WalletCardView(giftCard: cards[index])
+                    .stacked(at: index, in: cards.count)
+                    .onTapGesture {
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.7)) {
+                            selectedCard = cards[index]
+                            cardScale = 1.1
+                        }
+                    }
             }
         }
     }
