@@ -15,6 +15,7 @@ class GiftCard: Identifiable {
     var balance: Double
     var barcodeValue: String
     var barcodeType: String
+    var favorite: Bool = false
     @Relationship(deleteRule: .cascade) var transactions: [Transaction] = []
     
     init(id: String = UUID().uuidString, store: String, balance: Double) {

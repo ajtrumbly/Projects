@@ -33,6 +33,13 @@ struct DetailGiftCardView: View {
                         .padding()
                     
                     Button(action: {
+                        toggleFavorite(giftCard: giftCard)
+                    }) {
+                        Image(systemName: giftCard.favorite ? "star.fill" : "star")
+                            .font(.system(size: 24))
+                    }
+                    
+                    Button(action: {
                         showingDelete = true
                     }) {
                         Image(systemName: "trash")
@@ -118,6 +125,10 @@ struct DetailGiftCardView: View {
     func deleteCard() {
         modelContext.delete(giftCard)
         dismiss()
+    }
+    
+    func toggleFavorite(giftCard: GiftCard) {
+        giftCard.favorite.toggle()
     }
 }
 #Preview {
