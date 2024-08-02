@@ -13,6 +13,10 @@ extension View {
         let offset = Double(total - position)
         return self.offset(y: offset / 20)
     }
+    
+    func copyFeedback(textToCopy: String) -> some View {
+            self.modifier(CopyFeedbackModifier(textToCopy: textToCopy))
+        }
 }
 
 struct WalletView: View {

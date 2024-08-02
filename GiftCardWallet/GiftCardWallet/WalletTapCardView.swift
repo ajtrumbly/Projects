@@ -12,6 +12,7 @@ struct WalletTapCardView: View {
     @Binding var cardOffset: CGSize
     @Binding var cardScale: CGFloat
     @State private var isShowingScanner = false
+    @State private var isCopied = false
     
     var body: some View {
         VStack {
@@ -27,6 +28,7 @@ struct WalletTapCardView: View {
                 GenerateBarcodeView(giftCard: giftCard)
                     .padding()
                     .transition(.move(edge: .bottom).combined(with: .opacity))
+                    .copyFeedback(textToCopy: giftCard.barcodeValue)
             } else {
                 Button {
                     isShowingScanner = true

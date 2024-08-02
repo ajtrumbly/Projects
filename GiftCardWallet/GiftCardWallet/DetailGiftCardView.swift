@@ -57,6 +57,7 @@ struct DetailGiftCardView: View {
                     Section("Scan Card") {
                         if giftCard.barcodeValue.isEmpty == false {
                             GenerateBarcodeView(giftCard: giftCard)
+                                .copyFeedback(textToCopy: giftCard.barcodeValue)
                         } else {
                             Button {
                                 isShowingScanner = true
